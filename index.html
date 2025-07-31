@@ -510,4 +510,235 @@
             const leadsValues = data.map(c => c["Leads in Campaign"]);
             const responsesValues = data.map(c => c["Responses in Campaign"]);
             const costPerResponseValues = data.map(c => c["Average Cost Per Response"]);
-            const opportunitiesValues = data.
+            const opportunitiesValues = data.map(c => c["Opportunities in Campaign"]);
+            const valueWonValues = data.map(c => c["Value Won Opportunities in Campaign"]);
+
+            // Destroy existing chart instances if they exist
+            if (roiChartInstance) roiChartInstance.destroy();
+            if (leadsResponsesChartInstance) leadsResponsesChartInstance.destroy();
+            if (costPerResponseChartInstance) costPerResponseChartInstance.destroy();
+            if (opportunitiesChartInstance) opportunitiesChartInstance.destroy();
+
+            // ROI Chart
+            const roiCtx = document.getElementById('roiChart').getContext('2d');
+            roiChartInstance = new Chart(roiCtx, {
+                type: 'bar',
+                data: {
+                    labels: campaignNames,
+                    datasets: [{
+                        label: 'ROI (%)',
+                        data: roiValues,
+                        backgroundColor: 'rgba(99, 102, 241, 0.8)', // indigo-500
+                        borderColor: 'rgba(79, 70, 229, 1)', // indigo-600
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'ROI (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Campaign Name'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Leads vs. Responses Chart
+            const leadsResponsesCtx = document.getElementById('leadsResponsesChart').getContext('2d');
+            leadsResponsesChartInstance = new Chart(leadsResponsesCtx, {
+                type: 'line',
+                data: {
+                    labels: campaignNames,
+                    datasets: [
+                        {
+                            label: 'Leads in Campaign',
+                            data: leadsValues,
+                            borderColor: 'rgba(139, 92, 246, 0.8)', // purple-500
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                            tension: 0.1,
+                            fill: true
+                        },
+                        {
+                            label: 'Responses in Campaign',
+                            data: responsesValues,
+                            borderColor: 'rgba(34, 197, 94, 0.8)', // green-500
+                            backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                            tension: 0.1,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Count'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Campaign Name'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    }
+                }
+            });
+
+            // Cost Per Response Chart
+            const costPerResponseCtx = document.getElementById('costPerResponseChart').getContext('2d');
+            costPerResponseChartInstance = new Chart(costPerResponseCtx, {
+                type: 'bar',
+                data: {
+                    labels: campaignNames,
+                    datasets: [{
+                        label: 'Avg. Cost Per Response ($)',
+                        data: costPerResponseValues,
+                        backgroundColor: 'rgba(251, 191, 36, 0.8)', // amber-400
+                        borderColor: 'rgba(245, 158, 11, 1)', // amber-500
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Cost ($)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Campaign Name'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.parsed.y.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Opportunities & Value Won Chart
+            const opportunitiesCtx = document.getElementById('opportunitiesChart').getContext('2d');
+            opportunitiesChartInstance = new Chart(opportunitiesCtx, {
+                type: 'bar',
+                data: {
+                    labels: campaignNames,
+                    datasets: [
+                        {
+                            label: 'Opportunities in Campaign',
+                            data: opportunitiesValues,
+                            backgroundColor: 'rgba(59, 130, 246, 0.8)', // blue-500
+                            borderColor: 'rgba(37, 99, 235, 1)', // blue-600
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Value Won Opportunities ($)',
+                            data: valueWonValues,
+                            backgroundColor: 'rgba(239, 68, 68, 0.8)', // red-500
+                            borderColor: 'rgba(220, 38, 38, 1)', // red-600
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Count / Value ($)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Campaign Name'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.dataset.label.includes('Value')) {
+                                        label += '$' + context.parsed.y.toLocaleString();
+                                    } else {
+                                        label += context.parsed.y.toLocaleString();
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Event Listener for Search Button
+        document.getElementById('searchButton').addEventListener('click', filterAndDisplayCampaigns);
+
+        // Initial data fetch and display on page load
+        window.onload = () => {
+            fetchDataFromGoogleSheet();
+        };
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('aiInsightsModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
