@@ -203,50 +203,11 @@
         let campaignData = [];
         let roiChartInstance, leadsResponsesChartInstance, costPerResponseChartInstance, opportunitiesChartInstance;
 
-        // IMPORTANT: Replace 'YOUR_GOOGLE_SHEET_CSV_PUBLISH_URL_HERE' with the actual URL
-        // you get after publishing your Google Sheet to the web as CSV.
-        // Example: https://docs.google.com/spreadsheets/d/e/2PACX-1vR.../pub?gid=0&single=true&output=csv
-        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRERHsfp5PgtW3QB1JlfAG7mi-TLLhWTKgOaUBk3Rr1PUuxuDOcK26gaOVwC_mK54Mo5TzcAJOtqMNi/pub?output=csv'; // <--- PASTE YOUR CSV URL HERE!
+        // IMPORTANT: This URL is for a Google Apps Script Web App.
+        // It has been updated with the URL you provided.
+        const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycby9_pDXQGvto64eEDh1Y0VyM1eOfU9wxgvX7ixzX50GcM1RIQeirL2pPG7b6XC828D0/exec'; 
 
-        // Function to parse CSV text into an array of objects
-        function parseCSV(csvText) {
-            const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Split by line and remove empty lines
-            if (lines.length === 0) return [];
-
-            const headers = lines[0].split(',').map(header => header.trim()); // Get headers from the first line
-            const data = [];
-
-            for (let i = 1; i < lines.length; i++) {
-                const values = lines[i].split(',');
-                let rowObject = {};
-                headers.forEach((header, index) => {
-                    let value = values[index] ? values[index].trim() : '';
-
-                    // Attempt to convert known numeric fields to numbers
-                    if ([
-                        "Actual Cost in Campaign",
-                        "Average Cost Per Response",
-                        "Leads in Campaign",
-                        "Responses in Campaign",
-                        "Converted Leads in Campaign",
-                        "Opportunities in Campaign",
-                        "Value Won Opportunities in Campaign",
-                        "ROI",
-                        "Average Cost Per Customer"
-                    ].includes(header)) {
-                        const numValue = parseFloat(value);
-                        // Ensure it's always a number. If parsing fails, default to 0.
-                        rowObject[header] = isNaN(numValue) ? 0 : numValue;
-                    } else {
-                        rowObject[header] = value;
-                    }
-                });
-                data.push(rowObject);
-            }
-            return data;
-        }
-
-        // Function to fetch campaign data from the published Google Sheet CSV
+        // Function to fetch campaign data from the Google Apps Script API
         async function fetchDataFromGoogleSheet() {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const campaignResultsDiv = document.getElementById('campaignResults');
@@ -260,21 +221,33 @@
             chartsSection.classList.add('hidden');
 
             try {
-                if (GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_PUBLISH_URL_HERE' || !GOOGLE_SHEET_CSV_URL) {
-                    throw new Error("Please update 'GOOGLE_SHEET_CSV_URL' in the script with your published Google Sheet CSV link.");
+                // Check if the URL is still the placeholder or empty (though now it's filled)
+                if (!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) {
+                    throw new Error("The Google Apps Script URL is missing or incorrect. Please ensure it's updated.");
                 }
 
-                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                const response = await fetch(GOOGLE_SHEET_API_URL);
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}. Check if the URL is correct and the sheet is published.`);
+                    throw new Error(`HTTP error! status: ${response.status}. Check if the Apps Script URL is correct and deployed.`);
                 }
-                const csvText = await response.text();
-                campaignData = parseCSV(csvText); // Parse the fetched CSV data
+                const data = await response.json(); // Expecting JSON response
+
+                if (data.error) {
+                    throw new Error(data.error); // Handle errors returned by Apps Script
+                }
+                if (data.message) {
+                    console.warn(data.message); // Handle no data message from Apps Script
+                    campaignData = [];
+                } else {
+                    campaignData = data; // Assign fetched JSON data
+                }
+                
+                console.log("Fetched Campaign Data (from Apps Script):", campaignData); // Log fetched data
 
                 filterAndDisplayCampaigns(); // Display campaigns once data is loaded
             } catch (error) {
                 console.error('Error fetching campaign data:', error);
-                campaignResultsDiv.innerHTML = `<p class="text-center text-red-600">Failed to load campaign data. Error: ${error.message}. Please check console for details.</p>`;
+                campaignResultsDiv.innerHTML = `<p class="text-center text-red-600">Failed to load campaign data. Error: ${error.message}. Please ensure your Google Apps Script is deployed correctly and accessible, and check the browser console for details.</p>`;
                 noResultsMessage.classList.add('hidden');
                 chartsSection.classList.add('hidden');
             } finally {
@@ -294,10 +267,17 @@
             campaignResultsDiv.innerHTML = ''; // Clear previous results
 
             let filteredCampaigns = campaignData.filter(campaign => {
-                const matchesRegion = (region === 'All' || campaign.Region === region);
-                // Ensure Responses in Campaign is treated as a number
-                const responses = Number(campaign["Responses in Campaign"]);
+                // Ensure 'Region' is correctly compared. Use || '' to handle undefined/null.
+                const campaignRegion = campaign.Region || '';
+                const matchesRegion = (region === 'All' || campaignRegion.trim() === region);
+
+                // Ensure 'Responses in Campaign' is treated as a number for filtering.
+                // Default to 0 if it's not a valid number.
+                const responses = Number(campaign["Responses in Campaign"]) || 0;
                 let matchesResponses = true;
+
+                // Log values for debugging filtering
+                console.log(`Filtering: Campaign: ${campaign["Campaign Name"]}, Region: '${campaignRegion}' (Match: ${matchesRegion}), Responses: ${responses} (Filter: '${responsesRange}')`);
 
                 switch (responsesRange) {
                     case '1-10':
@@ -317,6 +297,7 @@
                         matchesResponses = true;
                         break;
                 }
+                console.log(`  Matches Responses: ${matchesResponses}`);
                 return matchesRegion && matchesResponses;
             });
 
@@ -329,285 +310,29 @@
                 filteredCampaigns.forEach(campaign => {
                     const campaignCard = document.createElement('div');
                     campaignCard.className = 'card flex flex-col justify-between';
+
+                    // Defensive checks for numeric values before calling toLocaleString or toFixed
+                    // Use logical OR (||) with 0 or 'N/A' for display if the value is missing or not a number
+                    const campaignName = campaign["Campaign Name"] || 'N/A';
+                    const regionDisplay = campaign.Region || 'N/A';
+                    const actualCost = typeof campaign["Actual Cost in Campaign"] === 'number' ? campaign["Actual Cost in Campaign"].toLocaleString() : 'N/A';
+                    const avgCostPerResponse = typeof campaign["Average Cost Per Response"] === 'number' ? campaign["Average Cost Per Response"].toFixed(2) : 'N/A';
+                    const leads = typeof campaign["Leads in Campaign"] === 'number' ? campaign["Leads in Campaign"].toLocaleString() : 'N/A';
+                    const responses = typeof campaign["Responses in Campaign"] === 'number' ? campaign["Responses in Campaign"].toLocaleString() : 'N/A';
+                    const convertedLeads = typeof campaign["Converted Leads in Campaign"] === 'number' ? campaign["Converted Leads in Campaign"].toLocaleString() : 'N/A';
+                    const opportunities = typeof campaign["Opportunities in Campaign"] === 'number' ? campaign["Opportunities in Campaign"].toLocaleString() : 'N/A';
+                    const valueWon = typeof campaign["Value Won Opportunities in Campaign"] === 'number' ? campaign["Value Won Opportunities in Campaign"].toLocaleString() : 'N/A';
+                    const roi = typeof campaign["ROI"] === 'number' ? campaign["ROI"].toLocaleString() + '%' : 'N/A';
+                    const avgCostPerCustomer = typeof campaign["Average Cost Per Customer"] === 'number' ? campaign["Average Cost Per Customer"].toFixed(2) : 'N/A';
+                    const aiInsights = campaign["AI Insights"] || 'No insights available.';
+
                     campaignCard.innerHTML = `
-                        <h3 class="text-xl font-semibold mb-3 text-indigo-700">${campaign["Campaign Name"]}</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Region:</strong> ${campaign.Region}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Actual Cost:</strong> $${campaign["Actual Cost in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Avg. Cost/Response:</strong> $${campaign["Average Cost Per Response"].toFixed(2)}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Leads:</strong> ${campaign["Leads in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Responses:</strong> ${campaign["Responses in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Converted Leads:</strong> ${campaign["Converted Leads in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Opportunities:</strong> ${campaign["Opportunities in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Value Won:</strong> $${campaign["Value Won Opportunities in Campaign"].toLocaleString()}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>ROI:</strong> ${campaign["ROI"].toLocaleString()}%</p>
-                        <p class="text-sm text-gray-600 mb-4"><strong>Avg. Cost/Customer:</strong> $${campaign["Average Cost Per Customer"].toFixed(2)}</p>
-                        <button class="btn-secondary mt-auto" onclick="showAIInsights('${escapeHtml(campaign["AI Insights"])}')">AI Insights</button>
-                    `;
-                    campaignResultsDiv.appendChild(campaignCard);
-                });
-                renderCharts(filteredCampaigns);
-            }
-        }
-
-        // Helper function to escape HTML for safe display in onclick
-        function escapeHtml(text) {
-            var map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
-        }
-
-        // Function to show AI Insights modal
-        function showAIInsights(insightText) {
-            document.getElementById('modalInsightText').innerText = insightText;
-            document.getElementById('aiInsightsModal').style.display = 'flex'; // Use flex to center
-        }
-
-        // Function to close AI Insights modal
-        function closeModal() {
-            document.getElementById('aiInsightsModal').style.display = 'none';
-        }
-
-        // Function to render charts
-        function renderCharts(data) {
-            const campaignNames = data.map(c => c["Campaign Name"]);
-            const roiValues = data.map(c => c["ROI"]);
-            const leadsValues = data.map(c => c["Leads in Campaign"]);
-            const responsesValues = data.map(c => c["Responses in Campaign"]);
-            const costPerResponseValues = data.map(c => c["Average Cost Per Response"]);
-            const opportunitiesValues = data.map(c => c["Opportunities in Campaign"]);
-            const valueWonValues = data.map(c => c["Value Won Opportunities in Campaign"]);
-
-            // Destroy existing chart instances if they exist
-            if (roiChartInstance) roiChartInstance.destroy();
-            if (leadsResponsesChartInstance) leadsResponsesChartInstance.destroy();
-            if (costPerResponseChartInstance) costPerResponseChartInstance.destroy();
-            if (opportunitiesChartInstance) opportunitiesChartInstance.destroy();
-
-            // ROI Chart
-            const roiCtx = document.getElementById('roiChart').getContext('2d');
-            roiChartInstance = new Chart(roiCtx, {
-                type: 'bar',
-                data: {
-                    labels: campaignNames,
-                    datasets: [{
-                        label: 'ROI (%)',
-                        data: roiValues,
-                        backgroundColor: 'rgba(99, 102, 241, 0.8)', // indigo-500
-                        borderColor: 'rgba(79, 70, 229, 1)', // indigo-600
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'ROI (%)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Campaign Name'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': ' + context.parsed.y + '%';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Leads vs. Responses Chart
-            const leadsResponsesCtx = document.getElementById('leadsResponsesChart').getContext('2d');
-            leadsResponsesChartInstance = new Chart(leadsResponsesCtx, {
-                type: 'line',
-                data: {
-                    labels: campaignNames,
-                    datasets: [
-                        {
-                            label: 'Leads in Campaign',
-                            data: leadsValues,
-                            borderColor: 'rgba(139, 92, 246, 0.8)', // purple-500
-                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
-                            tension: 0.1,
-                            fill: true
-                        },
-                        {
-                            label: 'Responses in Campaign',
-                            data: responsesValues,
-                            borderColor: 'rgba(34, 197, 94, 0.8)', // green-500
-                            backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                            tension: 0.1,
-                            fill: true
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Count'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Campaign Name'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                        }
-                    }
-                }
-            });
-
-            // Cost Per Response Chart
-            const costPerResponseCtx = document.getElementById('costPerResponseChart').getContext('2d');
-            costPerResponseChartInstance = new Chart(costPerResponseCtx, {
-                type: 'bar',
-                data: {
-                    labels: campaignNames,
-                    datasets: [{
-                        label: 'Avg. Cost Per Response ($)',
-                        data: costPerResponseValues,
-                        backgroundColor: 'rgba(251, 191, 36, 0.8)', // amber-400
-                        borderColor: 'rgba(245, 158, 11, 1)', // amber-500
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Cost ($)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Campaign Name'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': $' + context.parsed.y.toFixed(2);
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Opportunities & Value Won Chart
-            const opportunitiesCtx = document.getElementById('opportunitiesChart').getContext('2d');
-            opportunitiesChartInstance = new Chart(opportunitiesCtx, {
-                type: 'bar',
-                data: {
-                    labels: campaignNames,
-                    datasets: [
-                        {
-                            label: 'Opportunities in Campaign',
-                            data: opportunitiesValues,
-                            backgroundColor: 'rgba(59, 130, 246, 0.8)', // blue-500
-                            borderColor: 'rgba(37, 99, 235, 1)', // blue-600
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Value Won Opportunities ($)',
-                            data: valueWonValues,
-                            backgroundColor: 'rgba(239, 68, 68, 0.8)', // red-500
-                            borderColor: 'rgba(220, 38, 38, 1)', // red-600
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Count / Value ($)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Campaign Name'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.dataset.label.includes('Value')) {
-                                        label += '$' + context.parsed.y.toLocaleString();
-                                    } else {
-                                        label += context.parsed.y.toLocaleString();
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Event Listener for Search Button
-        document.getElementById('searchButton').addEventListener('click', filterAndDisplayCampaigns);
-
-        // Initial data fetch and display on page load
-        window.onload = () => {
-            fetchDataFromGoogleSheet();
-        };
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('aiInsightsModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-</body>
-</html>
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700">${campaignName}</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Region:</strong> ${regionDisplay}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Actual Cost:</strong> $${actualCost}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Avg. Cost/Response:</strong> $${avgCostPerResponse}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Leads:</strong> ${leads}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Responses:</strong> ${responses}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Converted Leads:</strong> ${convertedLeads}</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Opportunities:</strong> ${opportunities}</p>
+                        <p class="text-sm text-gr
