@@ -206,7 +206,7 @@
         // IMPORTANT: Replace 'YOUR_GOOGLE_SHEET_CSV_PUBLISH_URL_HERE' with the actual URL
         // you get after publishing your Google Sheet to the web as CSV.
         // Example: https://docs.google.com/spreadsheets/d/e/2PACX-1vR.../pub?gid=0&single=true&output=csv
-        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRERHsfp5PgtW3QB1JlfAG7mi-TLLhWTKgOaUBk3Rr1PUuxuDOcK26gaOVwC_mK54Mo5TzcAJOtqMNi/pub?output=csv'; // PASTE YOUR CSV URL HERE!
+        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRERHsfp5PgtW3QB1JlfAG7mi-TLLhWTKgOaUBk3Rr1PUuxuDOcK26gaOVwC_mK54Mo5TzcAJOtqMNi/pub?output=csv'; // <--- PASTE YOUR CSV URL HERE!
 
         // Function to parse CSV text into an array of objects
         function parseCSV(csvText) {
@@ -235,7 +235,8 @@
                         "Average Cost Per Customer"
                     ].includes(header)) {
                         const numValue = parseFloat(value);
-                        rowObject[header] = isNaN(numValue) ? value : numValue; // Keep original if not a valid number
+                        // Ensure it's always a number. If parsing fails, default to 0.
+                        rowObject[header] = isNaN(numValue) ? 0 : numValue;
                     } else {
                         rowObject[header] = value;
                     }
