@@ -203,182 +203,49 @@
         let campaignData = [];
         let roiChartInstance, leadsResponsesChartInstance, costPerResponseChartInstance, opportunitiesChartInstance;
 
-        // Simulated Google Sheet Data for demonstration.
-        // In a real application, this data would be fetched from a backend service
-        // that connects to your Google Sheet (e.g., Google Apps Script, Firebase Functions).
-        // The structure of the fetched data should match this array of objects.
-        const simulatedFetchedData = [
-            {
-                "Campaign Name": "Summer Sale 2024",
-                "Region": "North America",
-                "Actual Cost in Campaign": 5000,
-                "Average Cost Per Response": 5,
-                "Leads in Campaign": 800,
-                "Responses in Campaign": 1000,
-                "Converted Leads in Campaign": 150,
-                "Opportunities in Campaign": 200,
-                "Value Won Opportunities in Campaign": 75000,
-                "ROI": 1400,
-                "Average Cost Per Customer": 33.33,
-                "AI Insights": "This campaign showed strong engagement in North America, with a good conversion rate. Consider replicating strategies for future regional campaigns. The ROI is excellent, indicating highly effective targeting."
-            },
-            {
-                "Campaign Name": "Winter Collection Launch",
-                "Region": "Europe",
-                "Actual Cost in Campaign": 7000,
-                "Average Cost Per Response": 7,
-                "Leads in Campaign": 600,
-                "Responses in Campaign": 800,
-                "Converted Leads in Campaign": 100,
-                "Opportunities in Campaign": 120,
-                "Value Won Opportunities in Campaign": 60000,
-                "ROI": 757,
-                "Average Cost Per Customer": 70,
-                "AI Insights": "European launch performed moderately. While responses were decent, the cost per customer is higher. Analyze ad creatives and targeting for potential optimization in future campaigns. ROI is positive but has room for improvement."
-            },
-            {
-                "Campaign Name": "Back-to-School Promo",
-                "Region": "North America",
-                "Actual Cost in Campaign": 3000,
-                "Average Cost Per Response": 3,
-                "Leads in Campaign": 900,
-                "Responses in Campaign": 1200,
-                "Converted Leads in Campaign": 200,
-                "Opportunities in Campaign": 250,
-                "Value Won Opportunities in Campaign": 80000,
-                "ROI": 2566,
-                "Average Cost Per Customer": 15,
-                "AI Insights": "An exceptionally successful campaign with very low cost per response and high ROI. The high number of converted leads suggests strong product-market fit. This campaign sets a benchmark for efficiency."
-            },
-            {
-                "Campaign Name": "Holiday Season Blast",
-                "Region": "Asia",
-                "Actual Cost in Campaign": 10000,
-                "Average Cost Per Response": 10,
-                "Leads in Campaign": 500,
-                "Responses in Campaign": 600,
-                "Converted Leads in Campaign": 80,
-                "Opportunities in Campaign": 100,
-                "Value Won Opportunities in Campaign": 40000,
-                "ROI": 300,
-                "Average Cost Per Customer": 125,
-                "AI Insights": "Performance in Asia was below expectations. High cost per response and per customer indicate issues with targeting or messaging. A/B test different approaches for this region. ROI is positive but minimal."
-            },
-            {
-                "Campaign Name": "Spring Refresh",
-                "Region": "Europe",
-                "Actual Cost in Campaign": 4500,
-                "Average Cost Per Response": 4.5,
-                "Leads in Campaign": 700,
-                "Responses in Campaign": 950,
-                "Converted Leads in Campaign": 130,
-                "Opportunities in Campaign": 180,
-                "Value Won Opportunities in Campaign": 55000,
-                "ROI": 1122,
-                "Average Cost Per Customer": 34.62,
-                "AI Insights": "Solid performance in Europe with good ROI. The campaign effectively generated leads and conversions. Continue to monitor average cost per customer for any fluctuations."
-            },
-            {
-                "Campaign Name": "New Year, New You",
-                "Region": "North America",
-                "Actual Cost in Campaign": 6000,
-                "Average Cost Per Response": 6,
-                "Leads in Campaign": 750,
-                "Responses in Campaign": 900,
-                "Converted Leads in Campaign": 160,
-                "Opportunities in Campaign": 210,
-                "Value Won Opportunities in Campaign": 70000,
-                "ROI": 1066,
-                "Average Cost Per Customer": 37.5,
-                "AI Insights": "Consistent performance in North America. The campaign achieved a healthy ROI and converted a good number of leads. Explore opportunities for upselling or cross-selling to existing customers."
-            },
-            {
-                "Campaign Name": "Local Market Blitz",
-                "Region": "South America",
-                "Actual Cost in Campaign": 2000,
-                "Average Cost Per Response": 2,
-                "Leads in Campaign": 100,
-                "Responses in Campaign": 150,
-                "Converted Leads in Campaign": 20,
-                "Opportunities in Campaign": 30,
-                "Value Won Opportunities in Campaign": 10000,
-                "ROI": 400,
-                "Average Cost Per Customer": 100,
-                "AI Insights": "A smaller, targeted campaign. While the numbers are lower, the cost per response is very good. The cost per customer is high, suggesting a need to refine the conversion funnel for this region."
-            },
-            {
-                "Campaign Name": "Global Brand Awareness",
-                "Region": "Asia",
-                "Actual Cost in Campaign": 15000,
-                "Average Cost Per Response": 15,
-                "Leads in Campaign": 300,
-                "Responses in Campaign": 400,
-                "Converted Leads in Campaign": 50,
-                "Opportunities in Campaign": 70,
-                "Value Won Opportunities in Campaign": 25000,
-                "ROI": 66,
-                "Average Cost Per Customer": 300,
-                "AI Insights": "This campaign had a very low ROI and high costs. It seems more focused on awareness than direct conversions. Re-evaluate objectives and metrics for such campaigns, or adjust strategy for better lead generation."
-            },
-            {
-                "Campaign Name": "Early Bird Special",
-                "Region": "North America",
-                "Actual Cost in Campaign": 2500,
-                "Average Cost Per Response": 2.5,
-                "Leads in Campaign": 850,
-                "Responses in Campaign": 1100,
-                "Converted Leads in Campaign": 180,
-                "Opportunities in Campaign": 220,
-                "Value Won Opportunities in Campaign": 72000,
-                "ROI": 2780,
-                "Average Cost Per Customer": 13.89,
-                "AI Insights": "An outstanding campaign with exceptional ROI and very low cost per customer. The early bird strategy clearly resonated with the audience. This is a highly effective model to repeat."
-            },
-            {
-                "Campaign Name": "Autumn Collection",
-                "Region": "Europe",
-                "Actual Cost in Campaign": 5500,
-                "Average Cost Per Response": 5.5,
-                "Leads in Campaign": 650,
-                "Responses in Campaign": 850,
-                "Converted Leads in Campaign": 110,
-                "Opportunities in Campaign": 140,
-                "Value Won Opportunities in Campaign": 50000,
-                "ROI": 809,
-                "Average Cost Per Customer": 50,
-                "AI Insights": "Good performance for the Autumn collection in Europe. The ROI is healthy, and the conversion rate is stable. Consider segmenting the audience further for even better targeting."
-            },
-            {
-                "Campaign Name": "Flash Sale",
-                "Region": "Asia",
-                "Actual Cost in Campaign": 1500,
-                "Average Cost Per Response": 1.5,
-                "Leads in Campaign": 120,
-                "Responses in Campaign": 180,
-                "Converted Leads in Campaign": 25,
-                "Opportunities in Campaign": 35,
-                "Value Won Opportunities in Campaign": 12000,
-                "ROI": 700,
-                "Average Cost Per Customer": 60,
-                "AI Insights": "A small but effective flash sale. The cost per response is very low, indicating good immediate engagement. Focus on increasing the volume for similar future campaigns."
-            },
-            {
-                "Campaign Name": "End of Year Clearance",
-                "Region": "North America",
-                "Actual Cost in Campaign": 8000,
-                "Average Cost Per Response": 8,
-                "Leads in Campaign": 400,
-                "Responses in Campaign": 500,
-                "Converted Leads in Campaign": 70,
-                "Opportunities in Campaign": 90,
-                "Value Won Opportunities in Campaign": 35000,
-                "ROI": 337,
-                "Average Cost Per Customer": 114.28,
-                "AI Insights": "The clearance campaign had a lower ROI and higher cost per customer. This is typical for clearance sales, but review if the discount strategy was optimal for profitability."
-            }
-        ];
+        // IMPORTANT: Replace 'YOUR_GOOGLE_SHEET_CSV_PUBLISH_URL_HERE' with the actual URL
+        // you get after publishing your Google Sheet to the web as CSV.
+        // Example: https://docs.google.com/spreadsheets/d/e/2PACX-1vR.../pub?gid=0&single=true&output=csv
+        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRERHsfp5PgtW3QB1JlfAG7mi-TLLhWTKgOaUBk3Rr1PUuxuDOcK26gaOVwC_mK54Mo5TzcAJOtqMNi/pub?output=csv'; // PASTE YOUR CSV URL HERE!
 
-        // Function to fetch campaign data from a simulated Google Sheet API
+        // Function to parse CSV text into an array of objects
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Split by line and remove empty lines
+            if (lines.length === 0) return [];
+
+            const headers = lines[0].split(',').map(header => header.trim()); // Get headers from the first line
+            const data = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',');
+                let rowObject = {};
+                headers.forEach((header, index) => {
+                    let value = values[index] ? values[index].trim() : '';
+
+                    // Attempt to convert known numeric fields to numbers
+                    if ([
+                        "Actual Cost in Campaign",
+                        "Average Cost Per Response",
+                        "Leads in Campaign",
+                        "Responses in Campaign",
+                        "Converted Leads in Campaign",
+                        "Opportunities in Campaign",
+                        "Value Won Opportunities in Campaign",
+                        "ROI",
+                        "Average Cost Per Customer"
+                    ].includes(header)) {
+                        const numValue = parseFloat(value);
+                        rowObject[header] = isNaN(numValue) ? value : numValue; // Keep original if not a valid number
+                    } else {
+                        rowObject[header] = value;
+                    }
+                });
+                data.push(rowObject);
+            }
+            return data;
+        }
+
+        // Function to fetch campaign data from the published Google Sheet CSV
         async function fetchDataFromGoogleSheet() {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const campaignResultsDiv = document.getElementById('campaignResults');
@@ -392,22 +259,22 @@
             chartsSection.classList.add('hidden');
 
             try {
-                // In a real scenario, you would replace this with a fetch call to your Google Apps Script web app URL.
-                // Example: const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL');
-                // const data = await response.json();
-                // campaignData = data; // Assign fetched data to the global variable
+                if (GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_PUBLISH_URL_HERE' || !GOOGLE_SHEET_CSV_URL) {
+                    throw new Error("Please update 'GOOGLE_SHEET_CSV_URL' in the script with your published Google Sheet CSV link.");
+                }
 
-                // Simulating network delay and data assignment
-                await new Promise(resolve => setTimeout(() => {
-                    campaignData = simulatedFetchedData; // Assign simulated data
-                    resolve();
-                }, 1500)); // Simulate 1.5 seconds loading time
+                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}. Check if the URL is correct and the sheet is published.`);
+                }
+                const csvText = await response.text();
+                campaignData = parseCSV(csvText); // Parse the fetched CSV data
 
                 filterAndDisplayCampaigns(); // Display campaigns once data is loaded
             } catch (error) {
                 console.error('Error fetching campaign data:', error);
-                campaignResultsDiv.innerHTML = '<p class="text-center text-red-600">Failed to load campaign data. Please try again later.</p>';
-                noResultsMessage.classList.add('hidden'); // Ensure it's hidden if there's a load error
+                campaignResultsDiv.innerHTML = `<p class="text-center text-red-600">Failed to load campaign data. Error: ${error.message}. Please check console for details.</p>`;
+                noResultsMessage.classList.add('hidden');
                 chartsSection.classList.add('hidden');
             } finally {
                 // Hide loading indicator
@@ -427,7 +294,8 @@
 
             let filteredCampaigns = campaignData.filter(campaign => {
                 const matchesRegion = (region === 'All' || campaign.Region === region);
-                const responses = campaign["Responses in Campaign"];
+                // Ensure Responses in Campaign is treated as a number
+                const responses = Number(campaign["Responses in Campaign"]);
                 let matchesResponses = true;
 
                 switch (responsesRange) {
