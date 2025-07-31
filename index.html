@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign Performance Dashboard</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Campaign Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chart.js CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -18,321 +15,444 @@
         }
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 2rem auto;
             padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-        .card {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .btn-primary {
-            background-image: linear-gradient(to right, #6366f1, #8b5cf6); /* from-indigo-500 to-purple-600 */
-            color: #ffffff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem; /* rounded-lg */
-            font-weight: 600; /* font-semibold */
-            transition: all 0.2s ease-in-out;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            opacity: 0.9;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background-color: #e5e7eb; /* bg-gray-200 */
-            color: #4b5563; /* text-gray-700 */
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem; /* rounded-md */
-            font-weight: 500; /* font-medium */
-            transition: all 0.2s ease-in-out;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-secondary:hover {
-            background-color: #d1d5db; /* bg-gray-300 */
-        }
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 2rem;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-        }
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: #333;
-            text-decoration: none;
-        }
-        /* Responsive adjustments for charts */
-        .chart-container {
-            position: relative;
-            height: 400px; /* Fixed height for consistency */
+        .header {
+            text-align: center;
             margin-bottom: 2rem;
         }
-        @media (max-width: 768px) {
-            .chart-container {
-                height: 300px;
-            }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
         }
-        .loading-spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #6366f1;
+        .header p {
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background-color: #edf2f7;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .stat-card h3 {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .chart-section {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        .chart-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .campaigns-table {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .campaigns-table h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        tr:hover {
+            background-color: #edf2f7;
+        }
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        .status-active {
+            background-color: #c6f6d5;
+            color: #2f855a;
+        }
+        .status-paused {
+            background-color: #feebc8;
+            color: #b7791f;
+        }
+        .status-completed {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             animation: spin 1s linear infinite;
-            margin: 2rem auto;
-            display: none; /* Hidden by default */
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .loading-text {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #3498db;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <div class="container py-8">
-        <h1 class="text-4xl font-bold text-center mb-8 text-indigo-700">Campaign Performance Dashboard</h1>
-
-        <!-- Filter Section (First Fold) -->
-        <div class="card mb-8">
-            <h2 class="text-2xl font-semibold mb-6 text-indigo-600">Filter Campaigns</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-                <div>
-                    <label for="regionFilter" class="block text-sm font-medium text-gray-700 mb-2">Region</label>
-                    <select id="regionFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                        <option value="All">All Regions</option>
-                        <option value="North America">North America</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia">Asia</option>
-                        <option value="South America">South America</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="responsesFilter" class="block text-sm font-medium text-gray-700 mb-2">Responses in Campaign</label>
-                    <select id="responsesFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                        <option value="All">All Ranges</option>
-                        <option value="1-10">1 - 10</option>
-                        <option value="10-100">10 - 100</option>
-                        <option value="100-1000">100 - 1000</option>
-                        <option value="1000+">1000+</option>
-                    </select>
-                </div>
-                <div>
-                    <button id="searchButton" class="btn-primary w-full md:w-auto">Search Campaigns</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Loading Indicator -->
-        <div id="loadingIndicator" class="loading-spinner"></div>
-
-        <!-- Campaign Results Section -->
-        <div id="campaignResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <!-- Campaign cards will be inserted here by JavaScript -->
-        </div>
-
-        <!-- No Results Message -->
-        <div id="noResultsMessage" class="hidden text-center text-gray-600 text-lg py-10">
-            No campaigns found matching your criteria. Please adjust your filters.
-        </div>
-
-        <!-- Charts Section -->
-        <div id="chartsSection" class="hidden">
-            <h2 class="text-2xl font-semibold mb-6 text-indigo-600">Campaign Performance Charts</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="card chart-container">
-                    <h3 class="text-xl font-medium mb-4 text-gray-700">ROI vs. Campaign</h3>
-                    <canvas id="roiChart"></canvas>
-                </div>
-                <div class="card chart-container">
-                    <h3 class="text-xl font-medium mb-4 text-gray-700">Leads vs. Responses</h3>
-                    <canvas id="leadsResponsesChart"></canvas>
-                </div>
-                <div class="card chart-container">
-                    <h3 class="text-xl font-medium mb-4 text-gray-700">Cost Per Response vs. Campaign</h3>
-                    <canvas id="costPerResponseChart"></canvas>
-                </div>
-                <div class="card chart-container">
-                    <h3 class="text-xl font-medium mb-4 text-gray-700">Opportunities & Value Won</h3>
-                    <canvas id="opportunitiesChart"></canvas>
-                </div>
-            </div>
-        </div>
+<body>
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Loading campaign data...</p>
     </div>
 
-    <!-- AI Insights Modal -->
-    <div id="aiInsightsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h2 class="text-2xl font-bold mb-4 text-indigo-700">AI Insights</h2>
-            <p id="modalInsightText" class="text-gray-700 leading-relaxed"></p>
+    <div class="container hidden" id="dashboard-content">
+        <div class="header">
+            <h1>Marketing Campaign Dashboard</h1>
+            <p>Overview of your active, paused, and completed campaigns.</p>
+        </div>
+
+        <div class="stats-grid" id="stats-grid">
+            <!-- Stats will be dynamically loaded here -->
+        </div>
+
+        <div class="chart-section">
+            <h2>Campaign Performance Over Time</h2>
+            <canvas id="campaignChart"></canvas>
+        </div>
+
+        <div class="campaigns-table">
+            <h2>All Campaigns</h2>
+            <table id="campaigns-table">
+                <thead>
+                    <tr>
+                        <th>Campaign Name</th>
+                        <th>Status</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Budget</th>
+                        <th>Spend</th>
+                        <th>ROI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Campaign data will be dynamically loaded here -->
+                </tbody>
+            </table>
         </div>
     </div>
 
     <script>
-        // Global variable to store campaign data
-        let campaignData = [];
-        let roiChartInstance, leadsResponsesChartInstance, costPerResponseChartInstance, opportunitiesChartInstance;
-
-        // IMPORTANT: This URL is for a Google Apps Script Web App.
-        // It has been updated with the URL you provided.
-        const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycby9_pDXQGvto64eEDh1Y0VyM1eOfU9wxgvX7ixzX50GcM1RIQeirL2pPG7b6XC828D0/exec'; 
-
-        // Function to fetch campaign data from the Google Apps Script API
-        async function fetchDataFromGoogleSheet() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const campaignResultsDiv = document.getElementById('campaignResults');
-            const noResultsMessage = document.getElementById('noResultsMessage');
-            const chartsSection = document.getElementById('chartsSection');
-
-            // Show loading indicator
-            loadingIndicator.style.display = 'block';
-            campaignResultsDiv.innerHTML = ''; // Clear previous results
-            noResultsMessage.classList.add('hidden');
-            chartsSection.classList.add('hidden');
-
-            try {
-                // Check if the URL is still the placeholder or empty (though now it's filled)
-                if (!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) {
-                    throw new Error("The Google Apps Script URL is missing or incorrect. Please ensure it's updated.");
-                }
-
-                const response = await fetch(GOOGLE_SHEET_API_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}. Check if the Apps Script URL is correct and deployed.`);
-                }
-                const data = await response.json(); // Expecting JSON response
-
-                if (data.error) {
-                    throw new Error(data.error); // Handle errors returned by Apps Script
-                }
-                if (data.message) {
-                    console.warn(data.message); // Handle no data message from Apps Script
-                    campaignData = [];
-                } else {
-                    campaignData = data; // Assign fetched JSON data
-                }
-                
-                console.log("Fetched Campaign Data (from Apps Script):", campaignData); // Log fetched data
-
-                filterAndDisplayCampaigns(); // Display campaigns once data is loaded
-            } catch (error) {
-                console.error('Error fetching campaign data:', error);
-                campaignResultsDiv.innerHTML = `<p class="text-center text-red-600">Failed to load campaign data. Error: ${error.message}. Please ensure your Google Apps Script is deployed correctly and accessible, and check the browser console for details.</p>`;
-                noResultsMessage.classList.add('hidden');
-                chartsSection.classList.add('hidden');
-            } finally {
-                // Hide loading indicator
-                loadingIndicator.style.display = 'none';
+        // Sample hardcoded campaign data
+        const sampleCampaignData = [
+            {
+                "Campaign Name": "Summer Sale 2024",
+                "Status": "Active",
+                "Start Date": "2024-06-01",
+                "End Date": "2024-08-31",
+                "Budget": 50000,
+                "Spend": 35000,
+                "ROI": 1.5
+            },
+            {
+                "Campaign Name": "New Product Launch",
+                "Status": "Paused",
+                "Start Date": "2024-05-15",
+                "End Date": "2024-07-15",
+                "Budget": 25000,
+                "Spend": 20000,
+                "ROI": 1.2
+            },
+            {
+                "Campaign Name": "Holiday Season 2023",
+                "Status": "Completed",
+                "Start Date": "2023-11-01",
+                "End Date": "2023-12-31",
+                "Budget": 75000,
+                "Spend": 70000,
+                "ROI": 2.1
+            },
+            {
+                "Campaign Name": "Spring Collection Promo",
+                "Status": "Active",
+                "Start Date": "2024-03-01",
+                "End Date": "2024-05-31",
+                "Budget": 30000,
+                "Spend": 28000,
+                "ROI": 1.8
+            },
+            {
+                "Campaign Name": "Black Friday Deals",
+                "Status": "Completed",
+                "Start Date": "2023-11-20",
+                "End Date": "2023-11-27",
+                "Budget": 60000,
+                "Spend": 58000,
+                "ROI": 2.5
+            },
+            {
+                "Campaign Name": "Winter Clearance",
+                "Status": "Active",
+                "Start Date": "2024-01-01",
+                "End Date": "2024-02-28",
+                "Budget": 20000,
+                "Spend": 15000,
+                "ROI": 1.3
+            },
+            {
+                "Campaign Name": "Back to School",
+                "Status": "Paused",
+                "Start Date": "2024-07-20",
+                "End Date": "2024-09-10",
+                "Budget": 40000,
+                "Spend": 10000,
+                "ROI": 0.8
             }
+        ];
+
+        /**
+         * Fetches campaign data from a simulated source (hardcoded data).
+         * @returns {Promise<Array<Object>>} A promise that resolves with the campaign data.
+         */
+        async function fetchDataFromGoogleSheet() {
+            return new Promise(resolve => {
+                // Simulate network delay
+                setTimeout(() => {
+                    resolve(sampleCampaignData);
+                }, 1000); // 1 second delay
+            });
         }
 
-        // Function to filter and display campaigns
-        function filterAndDisplayCampaigns() {
-            const region = document.getElementById('regionFilter').value;
-            const responsesRange = document.getElementById('responsesFilter').value;
-            const campaignResultsDiv = document.getElementById('campaignResults');
-            const noResultsMessage = document.getElementById('noResultsMessage');
-            const chartsSection = document.getElementById('chartsSection');
+        /**
+         * Displays key statistics on the dashboard.
+         * @param {Array<Object>} campaigns - The array of campaign data.
+         */
+        function displayStats(campaigns) {
+            const totalCampaigns = campaigns.length;
+            const activeCampaigns = campaigns.filter(c => c.Status === 'Active').length;
+            const pausedCampaigns = campaigns.filter(c => c.Status === 'Paused').length;
+            const completedCampaigns = campaigns.filter(c => c.Status === 'Completed').length;
 
-            campaignResultsDiv.innerHTML = ''; // Clear previous results
+            const totalBudget = campaigns.reduce((sum, c) => sum + (c.Budget || 0), 0);
+            const totalSpend = campaigns.reduce((sum, c) => sum + (c.Spend || 0), 0);
+            const averageROI = campaigns.reduce((sum, c) => sum + (c.ROI || 0), 0) / totalCampaigns;
 
-            let filteredCampaigns = campaignData.filter(campaign => {
-                // Ensure 'Region' is correctly compared. Use || '' to handle undefined/null.
-                const campaignRegion = campaign.Region || '';
-                const matchesRegion = (region === 'All' || campaignRegion.trim() === region);
+            const statsGrid = document.getElementById('stats-grid');
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <h3>Total Campaigns</h3>
+                    <p>${totalCampaigns}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Campaigns</h3>
+                    <p>${activeCampaigns}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Paused Campaigns</h3>
+                    <p>${pausedCampaigns}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed Campaigns</h3>
+                    <p>${completedCampaigns}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Budget</h3>
+                    <p>$${totalBudget.toLocaleString()}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Spend</h3>
+                    <p>$${totalSpend.toLocaleString()}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average ROI</h3>
+                    <p>${averageROI.toFixed(2)}</p>
+                </div>
+            `;
+        }
 
-                // Ensure 'Responses in Campaign' is treated as a number for filtering.
-                // Default to 0 if it's not a valid number.
-                const responses = Number(campaign["Responses in Campaign"]) || 0;
-                let matchesResponses = true;
+        /**
+         * Displays campaign data in a table.
+         * @param {Array<Object>} campaigns - The array of campaign data.
+         */
+        function displayCampaigns(campaigns) {
+            const tableBody = document.getElementById('campaigns-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Clear existing rows
 
-                // Log values for debugging filtering
-                console.log(`Filtering: Campaign: ${campaign["Campaign Name"]}, Region: '${campaignRegion}' (Match: ${matchesRegion}), Responses: ${responses} (Filter: '${responsesRange}')`);
+            campaigns.forEach(campaign => {
+                const row = tableBody.insertRow();
+                const statusClass = {
+                    'Active': 'status-active',
+                    'Paused': 'status-paused',
+                    'Completed': 'status-completed'
+                }[campaign.Status] || '';
 
-                switch (responsesRange) {
-                    case '1-10':
-                        matchesResponses = (responses >= 1 && responses <= 10);
-                        break;
-                    case '10-100':
-                        matchesResponses = (responses >= 10 && responses <= 100);
-                        break;
-                    case '100-1000':
-                        matchesResponses = (responses >= 100 && responses <= 1000);
-                        break;
-                    case '1000+':
-                        matchesResponses = (responses > 1000);
-                        break;
-                    case 'All':
-                    default:
-                        matchesResponses = true;
-                        break;
+                row.innerHTML = `
+                    <td>${campaign['Campaign Name']}</td>
+                    <td><span class="status-badge ${statusClass}">${campaign.Status}</span></td>
+                    <td>${campaign['Start Date']}</td>
+                    <td>${campaign['End Date']}</td>
+                    <td>$${(campaign.Budget || 0).toLocaleString()}</td>
+                    <td>$${(campaign.Spend || 0).toLocaleString()}</td>
+                    <td>${(campaign.ROI || 0).toFixed(2)}</td>
+                `;
+            });
+        }
+
+        /**
+         * Displays a chart showing campaign performance (e.g., spend over time).
+         * @param {Array<Object>} campaigns - The array of campaign data.
+         */
+        function displayChart(campaigns) {
+            const ctx = document.getElementById('campaignChart').getContext('2d');
+
+            // Aggregate data for the chart (e.g., total spend per month)
+            const monthlySpend = {};
+            campaigns.forEach(campaign => {
+                const startDate = new Date(campaign['Start Date']);
+                const endDate = new Date(campaign['End Date']);
+                const spend = campaign.Spend || 0;
+
+                // Simple distribution of spend over months for demonstration
+                let currentMonth = new Date(startDate);
+                while (currentMonth <= endDate) {
+                    const monthKey = `${currentMonth.getFullYear()}-${(currentMonth.getMonth() + 1).toString().padStart(2, '0')}`;
+                    monthlySpend[monthKey] = (monthlySpend[monthKey] || 0) + (spend / ((endDate.getMonth() - startDate.getMonth() + 1) || 1));
+                    currentMonth.setMonth(currentMonth.getMonth() + 1);
                 }
-                console.log(`  Matches Responses: ${matchesResponses}`);
-                return matchesRegion && matchesResponses;
             });
 
-            if (filteredCampaigns.length === 0) {
-                noResultsMessage.classList.remove('hidden');
-                chartsSection.classList.add('hidden');
-            } else {
-                noResultsMessage.classList.add('hidden');
-                chartsSection.classList.remove('hidden');
-                filteredCampaigns.forEach(campaign => {
-                    const campaignCard = document.createElement('div');
-                    campaignCard.className = 'card flex flex-col justify-between';
+            const sortedMonths = Object.keys(monthlySpend).sort();
+            const labels = sortedMonths.map(month => {
+                const [year, monthNum] = month.split('-');
+                const date = new Date(year, parseInt(monthNum) - 1);
+                return date.toLocaleString('default', { month: 'short', year: 'numeric' });
+            });
+            const data = sortedMonths.map(month => monthlySpend[month]);
 
-                    // Defensive checks for numeric values before calling toLocaleString or toFixed
-                    // Use logical OR (||) with 0 or 'N/A' for display if the value is missing or not a number
-                    const campaignName = campaign["Campaign Name"] || 'N/A';
-                    const regionDisplay = campaign.Region || 'N/A';
-                    const actualCost = typeof campaign["Actual Cost in Campaign"] === 'number' ? campaign["Actual Cost in Campaign"].toLocaleString() : 'N/A';
-                    const avgCostPerResponse = typeof campaign["Average Cost Per Response"] === 'number' ? campaign["Average Cost Per Response"].toFixed(2) : 'N/A';
-                    const leads = typeof campaign["Leads in Campaign"] === 'number' ? campaign["Leads in Campaign"].toLocaleString() : 'N/A';
-                    const responses = typeof campaign["Responses in Campaign"] === 'number' ? campaign["Responses in Campaign"].toLocaleString() : 'N/A';
-                    const convertedLeads = typeof campaign["Converted Leads in Campaign"] === 'number' ? campaign["Converted Leads in Campaign"].toLocaleString() : 'N/A';
-                    const opportunities = typeof campaign["Opportunities in Campaign"] === 'number' ? campaign["Opportunities in Campaign"].toLocaleString() : 'N/A';
-                    const valueWon = typeof campaign["Value Won Opportunities in Campaign"] === 'number' ? campaign["Value Won Opportunities in Campaign"].toLocaleString() : 'N/A';
-                    const roi = typeof campaign["ROI"] === 'number' ? campaign["ROI"].toLocaleString() + '%' : 'N/A';
-                    const avgCostPerCustomer = typeof campaign["Average Cost Per Customer"] === 'number' ? campaign["Average Cost Per Customer"].toFixed(2) : 'N/A';
-                    const aiInsights = campaign["AI Insights"] || 'No insights available.';
+            if (window.campaignChartInstance) {
+                window.campaignChartInstance.destroy(); // Destroy previous chart instance
+            }
 
-                    campaignCard.innerHTML = `
-                        <h3 class="text-xl font-semibold mb-3 text-indigo-700">${campaignName}</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Region:</strong> ${regionDisplay}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Actual Cost:</strong> $${actualCost}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Avg. Cost/Response:</strong> $${avgCostPerResponse}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Leads:</strong> ${leads}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Responses:</strong> ${responses}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Converted Leads:</strong> ${convertedLeads}</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Opportunities:</strong> ${opportunities}</p>
-                        <p class="text-sm text-gr
+            window.campaignChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Total Spend ($)',
+                        data: data,
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Month'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Spend ($)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize dashboard on window load
+        window.onload = async function() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const dashboardContent = document.getElementById('dashboard-content');
+
+            try {
+                const campaignData = await fetchDataFromGoogleSheet();
+                displayStats(campaignData);
+                displayCampaigns(campaignData);
+                displayChart(campaignData);
+                loadingOverlay.classList.add('hidden');
+                dashboardContent.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error fetching campaign data:', error);
+                loadingOverlay.innerHTML = `<p class="loading-text text-red-500">Failed to load data. Please try again later.</p>`;
+            }
+        };
+    </script>
+</body>
+</html>
