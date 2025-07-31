@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #18702b; -webkit-text-stroke: #18702b}
+    span.s1 {font-kerning: none; background-color: #ecf1f7}
+    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
+    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
+    span.s4 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
+    span.s5 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
+    span.s6 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
+    span.s7 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
+    span.s8 {font-kerning: none; color: #093c94; background-color: #ecf1f7; -webkit-text-stroke: 0px #093c94}
+    span.s9 {font-kerning: none; color: #137646; background-color: #ecf1f7; -webkit-text-stroke: 0px #137646}
+    span.s10 {font-kerning: none}
+    span.s11 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
+    span.s12 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
+    span.s13 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
+    span.s14 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
+<p class="p2"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">GitHub Campaign Performance</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS CDN --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Inter Font --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Chart.js CDN for charts --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.jsdelivr.net/npm/chart.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s7">'Inter'</span><span class="s1">, </span><span class="s8">sans-serif</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Custom scrollbar for insights modal */</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.modal-content-scroll::-webkit-scrollbar</span><span class="s4"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">8px</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.modal-content-scroll::-webkit-scrollbar-track</span><span class="s4"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s8">#f1f1f1</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius:</span><span class="s1"> </span><span class="s9">10px</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.modal-content-scroll::-webkit-scrollbar-thumb</span><span class="s4"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s8">#888</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius:</span><span class="s1"> </span><span class="s9">10px</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.modal-content-scroll::-webkit-scrollbar-thumb:hover</span><span class="s4"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s8">#555</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 text-gray-800 p-4 sm:p-6 lg:p-8"</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">header</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mb-8 text-center"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-4xl font-extrabold text-blue-700 mb-2"</span><span class="s3">&gt;</span><span class="s4">GitHub Campaign Performance</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-lg text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Track and analyze your campaign data with AI-powered insights.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Filter Section - First Fold --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-200"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-gray-800 mb-5"</span><span class="s3">&gt;</span><span class="s4">Filter Campaigns</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-3 gap-6 items-end"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Region Filter --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"region-select"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block text-sm font-medium text-gray-700 mb-2"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>Region</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">select</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s2">id</span><span class="s3">=</span><span class="s5">"region-select"</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm"</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">option</span><span class="s1"> </span><span class="s2">value</span><span class="s3">=</span><span class="s5">"All"</span><span class="s3">&gt;</span><span class="s1">All</span><span class="s3">&lt;/</span><span class="s6">option</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Options will be populated by JavaScript --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">select</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Responses in Campaign Filter --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"responses-select"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block text-sm font-medium text-gray-700 mb-2"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>Responses in Campaign</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">select</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s2">id</span><span class="s3">=</span><span class="s5">"responses-select"</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm"</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">option</span><span class="s1"> </span><span class="s2">value</span><span class="s3">=</span><span class="s5">"All"</span><span class="s3">&gt;</span><span class="s1">All</span><span class="s3">&lt;/</span><span class="s6">option</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">option</span><span class="s1"> </span><span class="s2">value</span><span class="s3">=</span><span class="s5">"1-10"</span><span class="s3">&gt;</span><span class="s1">1-10</span><span class="s3">&lt;/</span><span class="s6">option</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">option</span><span class="s1"> </span><span class="s2">value</span><span class="s3">=</span><span class="s5">"11-100"</span><span class="s3">&gt;</span><span class="s1">11-100</span><span class="s3">&lt;/</span><span class="s6">option</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">option</span><span class="s1"> </span><span class="s2">value</span><span class="s3">=</span><span class="s5">"101-1000"</span><span class="s3">&gt;</span><span class="s1">101-1000</span><span class="s3">&lt;/</span><span class="s6">option</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">select</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Search Button --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-start md:justify-end"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s2">id</span><span class="s3">=</span><span class="s5">"search-button"</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full md:w-auto px-8 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition duration-200 ease-in-out"</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>Search Campaigns</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Filtered Campaign Results --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-200"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-gray-800 mb-5"</span><span class="s3">&gt;</span><span class="s4">Filtered Campaigns (</span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"campaign-count"</span><span class="s3">&gt;</span><span class="s4">0</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s4">)</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"campaign-results-container"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"overflow-x-auto rounded-lg border border-gray-200"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"no-campaigns-message"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center text-gray-500 py-10 hidden"</span><span class="s3">&gt;</span><span class="s4">No campaigns found matching your criteria.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">table</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"campaign-table"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"min-w-full divide-y divide-gray-200"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">thead</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"bg-gray-50"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">tr</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s5">"table-header-row"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;!-- Table headers will be populated by JavaScript --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">tr</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">thead</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">tbody</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"campaign-table-body"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white divide-y divide-gray-200"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Table rows will be populated by JavaScript --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">tbody</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">table</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Charts Section --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"charts-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-xl shadow-lg p-6 border border-gray-200 hidden"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-gray-800 mb-5"</span><span class="s3">&gt;</span><span class="s4">Campaign Performance Charts</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 lg:grid-cols-2 gap-8"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Bar Chart: Leads vs Responses --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 p-4 rounded-lg shadow-inner"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-semibold text-gray-700 mb-4 text-center"</span><span class="s3">&gt;</span><span class="s4">Leads vs Responses by Campaign</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative h-72"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">canvas</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s5">"leadsResponsesChart"</span><span class="s3">&gt;&lt;/</span><span class="s6">canvas</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Bar Chart: ROI and Value Won Opportunities --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 p-4 rounded-lg shadow-inner"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-semibold text-gray-700 mb-4 text-center"</span><span class="s3">&gt;</span><span class="s4">ROI and Value Won Opportunities</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative h-72"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">canvas</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s5">"roiValueWonChart"</span><span class="s3">&gt;&lt;/</span><span class="s6">canvas</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Pie Chart: Leads Distribution by Region --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"lg:col-span-2 bg-gray-50 p-4 rounded-lg shadow-inner flex flex-col items-center"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-lg font-semibold text-gray-700 mb-4 text-center"</span><span class="s3">&gt;</span><span class="s1">Leads Distribution by Region (Filtered Data)</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative h-80 w-full max-w-md"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">canvas</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s5">"leadsByRegionChart"</span><span class="s3">&gt;&lt;/</span><span class="s6">canvas</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- AI Insights Modal --&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"ai-insights-modal"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow-xl p-6 max-w-lg w-full transform transition-all duration-300 scale-100 opacity-100"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-center mb-4"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-semibold text-gray-800"</span><span class="s3">&gt;</span><span class="s4">AI Insights</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s2">id</span><span class="s3">=</span><span class="s5">"close-modal-button"</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-500 hover:text-gray-700 text-3xl leading-none font-bold"</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&amp;times;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"ai-insights-content"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 mb-6 max-h-96 overflow-y-auto modal-content-scroll"</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Insights content will be injected here --&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-end"</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">id</span><span class="s3">=</span><span class="s1">"close-modal-button-footer"</span></p>
+<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>Close</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Dummy data to simulate Google Sheet content</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">const</span><span class="s1"> allCampaigns = [</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Summer Sale 2024"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Region"</span><span class="s4">: </span><span class="s1">"North America"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">5000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">5</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">1000</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">800</span><span class="s4">, </span><span class="s13">// 101-1000 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">150</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">50</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">75000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">1400</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">33.33</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Campaign performed exceptionally well in North America, exceeding lead generation targets. High ROI indicates strong conversion efficiency. Consider replicating strategy in other regions."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Winter Collection Launch"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Europe"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">7000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">7</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">900</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">600</span><span class="s4">, </span><span class="s13">// 101-1000 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">100</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">40</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">60000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">757</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">70</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"European launch showed solid performance, though conversion rates could be improved. Average cost per customer is higher than desired. Focus on nurturing leads more effectively."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Spring Clearance"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Asia"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">3000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">3</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">1200</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">150</span><span class="s4">, </span><span class="s13">// 101-1000 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">80</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">25</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">30000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">900</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">37.5</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Asia campaign had a good number of leads but lower response rate. This suggests a need to refine targeting or messaging for this region. ROI is healthy given the cost."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Autumn Promo"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Region"</span><span class="s4">: </span><span class="s1">"North America"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">4500</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">6</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">800</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">90</span><span class="s4">, </span><span class="s13">// 11-100 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">60</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">20</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">25000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">455</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">75</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"North America autumn promo had moderate success. Responses were lower than expected. Recommend A/B testing ad creatives and landing pages to boost engagement."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Holiday Special"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Europe"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">10000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">10</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">1500</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">1000</span><span class="s4">, </span><span class="s13">// 101-1000 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">200</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">70</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">100000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">900</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">50</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Holiday campaign in Europe was a major success, hitting all key metrics. High volume of responses and conversions. This campaign serves as a benchmark for future large-scale initiatives."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"New Year Kickoff"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Asia"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">6000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">8</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">700</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">50</span><span class="s4">, </span><span class="s13">// 11-100 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">40</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">15</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">18000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">200</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">150</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"New Year campaign in Asia had a low response rate and high cost per customer. Re-evaluate target audience and messaging for this region. Consider a smaller, more focused approach next time."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Back to School"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Region"</span><span class="s4">: </span><span class="s1">"North America"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">3500</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">4</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">950</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">30</span><span class="s4">, </span><span class="s13">// 11-100 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">50</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">18</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">28000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">700</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">70</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Back to School campaign showed good lead generation but low responses. There's a disconnect between initial interest and engagement. Improve call-to-actions."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Summer Flash Sale"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Europe"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">2000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">2</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">10</span><span class="s1">, </span><span class="s13">// 1-10 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">10</span><span class="s4">, </span><span class="s13">// 1-10 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">30</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">10</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">15000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">650</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">66.67</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Flash sale in Europe had very low responses, indicating the offer might not have resonated or was not visible enough. Despite low responses, conversions were decent. Focus on reach and visibility."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Q1 Performance Boost"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Region"</span><span class="s1">: </span><span class="s7">"Asia"</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">8000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">9</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">600</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">100</span><span class="s4">, </span><span class="s13">// 11-100 category</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">70</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">22</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">40000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">400</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">114.28</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Q1 campaign in Asia had a high cost per customer and lower ROI. Review the target audience and channels used. Consider reallocating budget to more effective strategies."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Campaign Name"</span><span class="s4">: </span><span class="s1">"Product Launch Q3"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Region"</span><span class="s4">: </span><span class="s1">"North America"</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Actual Cost in Campaign"</span><span class="s4">: </span><span class="s12">12000</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Response"</span><span class="s4">: </span><span class="s12">12</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"Leads in Campaign"</span><span class="s1">: </span><span class="s12">1800</span><span class="s1">,</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s7">"Responses in Campaign"</span><span class="s4">: </span><span class="s12">1500</span><span class="s4">, </span><span class="s1">// This will fall into "Other" if category is 101-1000 max. Let's adjust for demo.</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Converted Leads in Campaign"</span><span class="s4">: </span><span class="s12">300</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">80</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Value Won Opportunities in Campaign"</span><span class="s4">: </span><span class="s12">150000</span><span class="s4">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">"ROI"</span><span class="s1">: </span><span class="s12">1150</span><span class="s1">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"Average Cost Per Customer"</span><span class="s4">: </span><span class="s12">40</span><span class="s4">,</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">"AI Insights"</span><span class="s4">: </span><span class="s1">"Q3 Product Launch was highly successful in North America. Strong responses, leads, and conversions. This campaign is a prime example of effective product marketing. Document best practices."</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>];</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">let</span><span class="s1"> filteredCampaigns = [];</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">let</span><span class="s1"> leadsResponsesChart, roiValueWonChart, leadsByRegionChart; </span><span class="s13">// Chart instances</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Helper function to categorize responses</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> getResponseCategory(responses) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (responses &gt;= </span><span class="s12">1</span><span class="s1"> &amp;&amp; responses &lt;= </span><span class="s12">10</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">return</span><span class="s1"> </span><span class="s7">"1-10"</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s11">else</span><span class="s1"> </span><span class="s11">if</span><span class="s1"> (responses &gt;= </span><span class="s12">11</span><span class="s1"> &amp;&amp; responses &lt;= </span><span class="s12">100</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">return</span><span class="s1"> </span><span class="s7">"11-100"</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s11">else</span><span class="s1"> </span><span class="s11">if</span><span class="s1"> (responses &gt;= </span><span class="s12">101</span><span class="s1"> &amp;&amp; responses &lt;= </span><span class="s12">1000</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">return</span><span class="s1"> </span><span class="s7">"101-1000"</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s11">return</span><span class="s4"> </span><span class="s7">"Other"</span><span class="s4">; </span><span class="s1">// Fallback for values outside defined ranges</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to populate the Region dropdown</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> populateRegionDropdown() {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> regionSelect = document.getElementById(</span><span class="s7">'region-select'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> regions = [</span><span class="s7">'All'</span><span class="s1">, ...</span><span class="s11">new</span><span class="s1"> </span><span class="s14">Set</span><span class="s1">(allCampaigns.map(campaign =&gt; campaign.</span><span class="s14">Region</span><span class="s1">))].sort();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>regions.forEach(region =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> option = document.createElement(</span><span class="s7">'option'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>option.value = region;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>option.textContent = region;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>regionSelect.appendChild(option);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to render the campaign table</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> renderCampaignTable(data) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> tableBody = document.getElementById(</span><span class="s7">'campaign-table-body'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> tableHeaderRow = document.getElementById(</span><span class="s7">'table-header-row'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> campaignCountSpan = document.getElementById(</span><span class="s7">'campaign-count'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> noCampaignsMessage = document.getElementById(</span><span class="s7">'no-campaigns-message'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> chartsSection = document.getElementById(</span><span class="s7">'charts-section'</span><span class="s1">);</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>tableBody.innerHTML = </span><span class="s7">''</span><span class="s1">; </span><span class="s13">// Clear existing rows</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>tableHeaderRow.innerHTML = </span><span class="s7">''</span><span class="s1">; </span><span class="s13">// Clear existing headers</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>campaignCountSpan.textContent = data.length;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (data.length === </span><span class="s12">0</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>noCampaignsMessage.classList.remove(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'campaign-table'</span><span class="s1">).classList.add(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>chartsSection.classList.add(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">return</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s11">else</span><span class="s1"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>noCampaignsMessage.classList.add(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'campaign-table'</span><span class="s1">).classList.remove(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>chartsSection.classList.remove(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Create table headers</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> headers = </span><span class="s14">Object</span><span class="s1">.keys(allCampaigns[</span><span class="s12">0</span><span class="s1">]).filter(header =&gt; header !== </span><span class="s7">"AI Insights"</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>headers.forEach(header =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> th = document.createElement(</span><span class="s7">'th'</span><span class="s1">);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span>th.className = </span><span class="s1">'px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'</span><span class="s4">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>th.textContent = header;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tableHeaderRow.appendChild(th);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> insightsTh = document.createElement(</span><span class="s7">'th'</span><span class="s1">);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span>insightsTh.className = </span><span class="s1">'px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'</span><span class="s4">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>insightsTh.textContent = </span><span class="s7">'Insights'</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>tableHeaderRow.appendChild(insightsTh);</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Create table rows</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>data.forEach((campaign, index) =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> tr = document.createElement(</span><span class="s7">'tr'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tr.className = </span><span class="s7">'hover:bg-gray-50'</span><span class="s1">;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>headers.forEach(header =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">const</span><span class="s1"> td = document.createElement(</span><span class="s7">'td'</span><span class="s1">);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                    </span>td.className = </span><span class="s1">'px-6 py-4 whitespace-nowrap text-sm text-gray-900'</span><span class="s4">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>td.textContent = campaign[header];</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>tr.appendChild(td);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> insightsTd = document.createElement(</span><span class="s7">'td'</span><span class="s1">);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span>insightsTd.className = </span><span class="s1">'px-6 py-4 whitespace-nowrap text-sm font-medium'</span><span class="s4">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> insightsButton = document.createElement(</span><span class="s7">'button'</span><span class="s1">);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span>insightsButton.className = </span><span class="s1">'px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-xs'</span><span class="s4">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>insightsButton.textContent = </span><span class="s7">'AI Insights'</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>insightsButton.onclick = () =&gt; showAIInsightsModal(campaign[</span><span class="s7">"AI Insights"</span><span class="s1">]);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>insightsTd.appendChild(insightsButton);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tr.appendChild(insightsTd);</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tableBody.appendChild(tr);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to show AI Insights modal</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> showAIInsightsModal(insights) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'ai-insights-content'</span><span class="s1">).textContent = insights;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'ai-insights-modal'</span><span class="s1">).classList.remove(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to close AI Insights modal</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> closeAIInsightsModal() {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'ai-insights-modal'</span><span class="s1">).classList.add(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'ai-insights-content'</span><span class="s1">).textContent = </span><span class="s7">''</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to render/update charts</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> renderCharts(data) {</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Destroy existing chart instances if they exist</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (leadsResponsesChart) leadsResponsesChart.destroy();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (roiValueWonChart) roiValueWonChart.destroy();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (leadsByRegionChart) leadsByRegionChart.destroy();</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Prepare data for charts</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> chartLabels = data.map(campaign =&gt; campaign[</span><span class="s7">"Campaign Name"</span><span class="s1">]);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> leadsData = data.map(campaign =&gt; campaign[</span><span class="s7">"Leads in Campaign"</span><span class="s1">]);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> responsesData = data.map(campaign =&gt; campaign[</span><span class="s7">"Responses in Campaign"</span><span class="s1">]);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> roiData = data.map(campaign =&gt; campaign[</span><span class="s7">"ROI"</span><span class="s1">]);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> valueWonData = data.map(campaign =&gt; campaign[</span><span class="s7">"Value Won Opportunities in Campaign"</span><span class="s1">]);</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Leads by Region for Pie Chart</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> leadsByRegion = data.reduce((acc, campaign) =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>acc[campaign.</span><span class="s14">Region</span><span class="s1">] = (acc[campaign.</span><span class="s14">Region</span><span class="s1">] || </span><span class="s12">0</span><span class="s1">) + campaign[</span><span class="s7">"Leads in Campaign"</span><span class="s1">];</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">return</span><span class="s1"> acc;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}, {});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> pieChartLabels = </span><span class="s14">Object</span><span class="s1">.keys(leadsByRegion);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> pieChartData = </span><span class="s14">Object</span><span class="s1">.values(leadsByRegion);</span></p>
+<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s4"> </span><span class="s14">PIE_COLORS</span><span class="s4"> = [</span><span class="s1">'#0088FE'</span><span class="s4">, </span><span class="s1">'#00C49F'</span><span class="s4">, </span><span class="s1">'#FFBB28'</span><span class="s4">, </span><span class="s1">'#FF8042'</span><span class="s4">, </span><span class="s1">'#A28DFF'</span><span class="s4">, </span><span class="s1">'#FF6B6B'</span><span class="s4">];</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Chart 1: Leads vs Responses Bar Chart</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> ctx1 = document.getElementById(</span><span class="s7">'leadsResponsesChart'</span><span class="s1">).getContext(</span><span class="s7">'2d'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>leadsResponsesChart = </span><span class="s11">new</span><span class="s1"> </span><span class="s14">Chart</span><span class="s1">(ctx1, {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>type: </span><span class="s7">'bar'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>labels: chartLabels,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>{</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>label: </span><span class="s7">'Leads in Campaign'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>data: leadsData,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>backgroundColor: </span><span class="s7">'#4A90E2'</span><span class="s1">, </span><span class="s13">// Blue</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>borderRadius: </span><span class="s12">5</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>{</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>label: </span><span class="s7">'Responses in Campaign'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>data: responsesData,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>backgroundColor: </span><span class="s7">'#50E3C2'</span><span class="s1">, </span><span class="s13">// Green</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>borderRadius: </span><span class="s12">5</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>]</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: </span><span class="s11">false</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>position: </span><span class="s7">'top'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>tooltip: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>callbacks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>label: </span><span class="s11">function</span><span class="s1">(context) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">let</span><span class="s1"> label = context.dataset.label || </span><span class="s7">''</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (label) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += </span><span class="s7">': '</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (context.parsed.y !== </span><span class="s11">null</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += context.parsed.y.toLocaleString();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">return</span><span class="s1"> label;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>scales: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>x: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>grid: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>display: </span><span class="s11">false</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>ticks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>autoSkip: </span><span class="s11">false</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>maxRotation: </span><span class="s12">45</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>minRotation: </span><span class="s12">45</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>y: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>beginAtZero: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>grid: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>color: </span><span class="s7">'#e0e0e0'</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Chart 2: ROI and Value Won Opportunities Bar Chart</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> ctx2 = document.getElementById(</span><span class="s7">'roiValueWonChart'</span><span class="s1">).getContext(</span><span class="s7">'2d'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>roiValueWonChart = </span><span class="s11">new</span><span class="s1"> </span><span class="s14">Chart</span><span class="s1">(ctx2, {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>type: </span><span class="s7">'bar'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>labels: chartLabels,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>{</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>label: </span><span class="s7">'ROI (%)'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>data: roiData,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>backgroundColor: </span><span class="s7">'#8884d8'</span><span class="s1">, </span><span class="s13">// Purple</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>yAxisID: </span><span class="s7">'y-roi'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>borderRadius: </span><span class="s12">5</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>{</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>label: </span><span class="s7">'Value Won Opportunities'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>data: valueWonData,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>backgroundColor: </span><span class="s7">'#82ca9d'</span><span class="s1">, </span><span class="s13">// Light Green</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>yAxisID: </span><span class="s7">'y-value'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>borderRadius: </span><span class="s12">5</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>]</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: </span><span class="s11">false</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>position: </span><span class="s7">'top'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>tooltip: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>callbacks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>label: </span><span class="s11">function</span><span class="s1">(context) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">let</span><span class="s1"> label = context.dataset.label || </span><span class="s7">''</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (label) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += </span><span class="s7">': '</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (context.parsed.y !== </span><span class="s11">null</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += context.parsed.y.toLocaleString();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s11">if</span><span class="s1"> (context.dataset.label === </span><span class="s7">'ROI (%)'</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                            </span>label += </span><span class="s7">'%'</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>} </span><span class="s11">else</span><span class="s1"> {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                            </span>label = </span><span class="s7">'$'</span><span class="s1"> + label;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">return</span><span class="s1"> label;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>scales: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>x: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>grid: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>display: </span><span class="s11">false</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>ticks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>autoSkip: </span><span class="s11">false</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>maxRotation: </span><span class="s12">45</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>minRotation: </span><span class="s12">45</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'y-roi'</span><span class="s1">: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>type: </span><span class="s7">'linear'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>position: </span><span class="s7">'left'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>beginAtZero: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>title: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>display: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>text: </span><span class="s7">'ROI (%)'</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>grid: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>color: </span><span class="s7">'#e0e0e0'</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'y-value'</span><span class="s1">: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>type: </span><span class="s7">'linear'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>position: </span><span class="s7">'right'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>beginAtZero: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>title: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>display: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>text: </span><span class="s7">'Value Won'</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>grid: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>drawOnChartArea: </span><span class="s11">false</span><span class="s1"> </span><span class="s13">// Only draw grid lines for the left Y-axis</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>ticks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>callback: </span><span class="s11">function</span><span class="s1">(value) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">return</span><span class="s1"> </span><span class="s7">'$'</span><span class="s1"> + value.toLocaleString();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Chart 3: Leads Distribution by Region Pie Chart</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> ctx3 = document.getElementById(</span><span class="s7">'leadsByRegionChart'</span><span class="s1">).getContext(</span><span class="s7">'2d'</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>leadsByRegionChart = </span><span class="s11">new</span><span class="s1"> </span><span class="s14">Chart</span><span class="s1">(ctx3, {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>type: </span><span class="s7">'pie'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>labels: pieChartLabels,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>data: pieChartData,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: </span><span class="s14">PIE_COLORS</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>hoverOffset: </span><span class="s12">4</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: </span><span class="s11">true</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: </span><span class="s11">false</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>position: </span><span class="s7">'right'</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>labels: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>boxWidth: </span><span class="s12">20</span><span class="s1">,</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>padding: </span><span class="s12">15</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>tooltip: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>callbacks: {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>label: </span><span class="s11">function</span><span class="s1">(context) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">let</span><span class="s1"> label = context.label || </span><span class="s7">''</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (label) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += </span><span class="s7">': '</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">if</span><span class="s1"> (context.parsed) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s11">const</span><span class="s1"> total = context.dataset.data.reduce((sum, val) =&gt; sum + val, </span><span class="s12">0</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s11">const</span><span class="s1"> percentage = ((context.parsed / total) * </span><span class="s12">100</span><span class="s1">).toFixed(</span><span class="s12">1</span><span class="s1">);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>label += </span><span class="s7">`</span><span class="s1">${context.parsed.toLocaleString()}</span><span class="s7"> (</span><span class="s1">${percentage}</span><span class="s7">%)`</span><span class="s1">;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">return</span><span class="s1"> label;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to handle the search/filter logic</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> filterCampaigns() {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> selectedRegion = document.getElementById(</span><span class="s7">'region-select'</span><span class="s1">).value;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> selectedResponsesCategory = document.getElementById(</span><span class="s7">'responses-select'</span><span class="s1">).value;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">let</span><span class="s1"> tempFilteredCampaigns = allCampaigns;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Filter by Region</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (selectedRegion !== </span><span class="s7">'All'</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tempFilteredCampaigns = tempFilteredCampaigns.filter(</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>campaign =&gt; campaign.</span><span class="s14">Region</span><span class="s1"> === selectedRegion</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Filter by Responses in Campaign category</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (selectedResponsesCategory !== </span><span class="s7">'All'</span><span class="s1">) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tempFilteredCampaigns = tempFilteredCampaigns.filter(campaign =&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>getResponseCategory(campaign[</span><span class="s7">"Responses in Campaign"</span><span class="s1">]) === selectedResponsesCategory</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>filteredCampaigns = tempFilteredCampaigns;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderCampaignTable(filteredCampaigns);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderCharts(filteredCampaigns);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Event Listeners</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener(</span><span class="s7">'DOMContentLoaded'</span><span class="s1">, () =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>populateRegionDropdown();</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span>filterCampaigns(); </span><span class="s1">// Initial render of all campaigns</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'search-button'</span><span class="s1">).addEventListener(</span><span class="s7">'click'</span><span class="s1">, filterCampaigns);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'close-modal-button'</span><span class="s1">).addEventListener(</span><span class="s7">'click'</span><span class="s1">, closeAIInsightsModal);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById(</span><span class="s7">'close-modal-button-footer'</span><span class="s1">).addEventListener(</span><span class="s7">'click'</span><span class="s1">, closeAIInsightsModal);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s10"></span><br></p>
+</body>
+</html>
